@@ -15,7 +15,29 @@ datasource db {
 }
 
 model Resume {
-  id    Int     @default(autoincrement()) @id
-  name  String
-  intent String
+  id            Int     @id @default(autoincrement()) // 简历唯一标识ID，自增主键
+  name          String // 姓名
+  phone_number  String // 电话号码
+  email         String // 电子邮箱
+  wechat_number String // 微信号
+  location      String? // 所在寝室，可选
+
+  intent  String // 目标岗位
+  summary String // 个人简介
+
+  major String // 专业
+  class String // 班级简称
+
+  skills             String // 技能特长，可包含编程语言、工具等
+  project_experience String? // 项目经验，可选
+  certifications     String? // 证书资质，如职业认证等，可选
+  honor              String? // 荣誉奖项，可选
+  language           String? // 语言能力，如外语水平，可选
+
+  website    String? // 个人网站/博客，可选
+  github     String? // GitHub账号链接，可选
+  extra_info String? // 补充信息，可选
+
+  created_at DateTime @default(now()) // 简历创建时间，默认当前时间
+  updated_at DateTime @default(now()) @updatedAt // 简历更新时间，自动更新
 }
