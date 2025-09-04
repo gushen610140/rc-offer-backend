@@ -31,10 +31,7 @@ export class ResumeController {
   }
 
   @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateResumeDto: UpdateResumeDto,
-  ) {
+  update(@Param('id') id: string, @Body() updateResumeDto: UpdateResumeDto) {
     return this.resumeService.update(+id, updateResumeDto);
   }
 
