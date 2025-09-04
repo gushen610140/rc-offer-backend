@@ -4,6 +4,14 @@ import { PrismaModule } from './prisma/prisma.module';
 import { ResumeModule } from './resume/resume.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), PrismaModule, ResumeModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+      ignoreEnvFile: false,
+    }),
+    PrismaModule,
+    ResumeModule,
+  ],
 })
 export class AppModule {}
